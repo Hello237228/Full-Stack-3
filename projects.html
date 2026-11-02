@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Demetre Imedadze</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base box-sizing and overflow prevention */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        img, video, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive Breakpoint: <= 768px Mobile vs >= 769px Desktop */
+        .mobile-nav-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+            .mobile-menu-btn {
+                display: inline-flex !important;
+            }
+            .mobile-nav-menu.open {
+                display: block !important;
+            }
+        }
+        @media (min-width: 769px) {
+            .desktop-nav {
+                display: block !important;
+            }
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            .mobile-nav-menu {
+                display: none !important;
+            }
+        }
+
+        /* Icon Filters */
+        .icon-filter-active {
+            filter: brightness(0) saturate(100%) invert(67%) sepia(47%) saturate(632%) hue-rotate(113deg) brightness(97%) contrast(89%);
+        }
+        .icon-filter-muted {
+            filter: brightness(0) invert(0.85);
+            transition: filter 0.2s ease;
+        }
+        .nav-animated-btn:hover .icon-filter-muted {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body id="top" class="bg-zinc-950 text-zinc-100 min-h-screen font-sans selection:bg-emerald-500 selection:text-zinc-950 max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex flex-col antialiased relative">
+
+    <!-- Subtle Modern Ambient Background Glows -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+        <div class="absolute -top-36 left-1/2 -translate-x-1/2 w-[650px] h-[320px] bg-emerald-500/10 blur-[130px] rounded-full"></div>
+        <div class="absolute top-[480px] -left-36 w-[450px] h-[280px] bg-teal-500/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="pb-6">
+        <div class="flex items-center justify-between gap-4">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 shadow-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Portfolio Showcase
+                    </span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-1 truncate sm:whitespace-normal">Demetre Imedadze</h1>
+                <p class="text-zinc-400 text-xs sm:text-base leading-tight">Junior Web Developer &amp; Tech Enthusiast</p>
+            </div>
+            
+            <!-- Hamburger Menu Button (Visible on screens <= 768px) -->
+            <button id="mobile-menu-button" type="button" class="mobile-menu-btn shrink-0 hidden items-center justify-center p-2.5 rounded-xl text-zinc-300 hover:text-white bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700/70 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg id="hamburger-icon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu (Visible <= 768px when expanded) -->
+        <nav id="mobile-nav" class="mobile-nav-menu hidden mt-4 pt-4 border-t border-zinc-800/80" aria-label="Mobile Navigation">
+            <ul class="flex flex-col gap-2.5 list-none p-0 m-0">
+                <li>
+                    <a href="index.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Home</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-21-avatar-hover-pinch-static.png" data-static="images/system-outline-21-avatar-hover-pinch-static.png" data-gif="images/system-outline-21-avatar-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>About</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 ring-1 ring-emerald-500/30 shadow-md">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-56-file-text-hover-pinch-static.png" data-static="images/system-outline-56-file-text-hover-pinch-static.png" data-gif="images/system-outline-56-file-text-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-active" alt="">
+                            <span>Projects</span>
+                        </div>
+                        <span class="text-xs text-emerald-400 font-normal">Current Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Contact</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Desktop Navigation (Keeps layout, modernized with floating glass card and interactive animated GIF icons) -->
+        <div class="desktop-nav">
+            <hr class="border-zinc-800/80 my-5">
+            <nav aria-label="Desktop Navigation" class="bg-zinc-900/40 backdrop-blur-md p-1.5 rounded-2xl border border-zinc-800/80 shadow-md">
+                <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
+                    <li>
+                        <a href="index.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-21-avatar-hover-pinch-static.png" data-static="images/system-outline-21-avatar-hover-pinch-static.png" data-gif="images/system-outline-21-avatar-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 ring-1 ring-emerald-500/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all duration-200">
+                            <img src="images/system-outline-56-file-text-hover-pinch-static.png" data-static="images/system-outline-56-file-text-hover-pinch-static.png" data-gif="images/system-outline-56-file-text-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-active" alt="">
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <hr class="border-zinc-800/80 my-5">
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 space-y-8 sm:space-y-12">
+
+        <section class="space-y-6 sm:space-y-8">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-1.5 h-6 rounded-full bg-emerald-500"></span>
+                    <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight">My Projects</h2>
+                </div>
+                <div class="flex items-center gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-medium">5 Featured Works</span>
+                </div>
+            </div>
+
+            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                Here is a collection of sample projects I have developed. Each project highlights different aspects of web development, from semantic structuring and accessibility to client-side logic and documentation.
+            </p>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Project 1: Flexbox Froggy Challenge -->
+            <article class="group bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-emerald-500/40 rounded-3xl p-5 sm:p-8 space-y-5 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-emerald-950/20">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 class="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">1. The Glorious Flexbox Froggy Challenge</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Level 24/24 Mastered</span>
+                </div>
+
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-zinc-100">Description:</strong> I have fully completed the glorious challenge of Flexbox Froggy! Through all 24 levels, this achievement demonstrates full mastery of CSS Flexbox layout mechanics, alignment properties, and responsive interface design.
+                </p>
+
+                <!-- Screenshot Preview with zoom button -->
+                <figure class="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950/80 p-2 sm:p-3 shadow-inner">
+                    <button type="button" onclick="document.getElementById('image-modal').showModal()" class="relative block w-full group/zoom cursor-zoom-in text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-xl overflow-hidden" title="Click to enlarge proof screenshot">
+                        <img src="images/flexboxfroggy.png" alt="Proof of Flexbox Froggy completion - Click to enlarge" class="rounded-xl w-full max-w-full h-auto border border-zinc-800/80 shadow-lg object-contain transition-transform duration-300 group-hover/zoom:scale-[1.01]">
+                        <div class="absolute inset-0 bg-emerald-950/30 opacity-0 group-hover/zoom:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                            <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-zinc-900/90 text-emerald-400 text-xs font-semibold border border-emerald-500/50 shadow-xl">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                Click to Enlarge Proof Screenshot
+                            </span>
+                        </div>
+                    </button>
+                    <figcaption class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-zinc-400 mt-2.5 font-medium px-1">
+                        <span class="break-words">Proof of Completion — Successfully Conquered All 24 Levels of Flexbox Froggy</span>
+                        <button type="button" onclick="document.getElementById('image-modal').showModal()" class="text-emerald-400 hover:text-emerald-300 font-medium underline underline-offset-4 decoration-emerald-500/50 hover:decoration-emerald-400 transition focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded self-start sm:self-auto cursor-pointer shrink-0">Enlarge image &rarr;</button>
+                    </figcaption>
+                </figure>
+
+                <h4 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400 border-b border-zinc-800 pb-2">Project Information:</h4>
+                <ul class="space-y-2.5 sm:space-y-3 list-none pl-0 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <li><strong class="text-zinc-100">Role:</strong> CSS Flexbox Master &amp; Solver</li>
+                    <li><strong class="text-zinc-100">Status:</strong> Fully Completed (Level 24/24)</li>
+                    <li><strong class="text-zinc-100">Key Features:</strong>
+                        <ul class="mt-2 space-y-1.5 list-disc list-outside ml-4 sm:ml-5 text-zinc-300 marker:text-emerald-400">
+                            <li>Complete fluency in container properties (<code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">justify-content</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">align-items</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">flex-direction</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">flex-wrap</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">align-content</code>).</li>
+                            <li>Precise item control utilizing <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">order</code> and <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">align-self</code> overrides.</li>
+                            <li>Tackled complex, compound flex rules in challenging multi-frog scenarios.</li>
+                            <li>Visual proof provided showcasing the triumphant completion screen.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-zinc-100">Technologies Used:</strong> CSS3 Flexbox, Web Layout Design</li>
+                </ul>
+
+                <!-- Responsive Interactive Action Buttons -->
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-t border-zinc-800/80">
+                    <a href="https://flexboxfroggy.com" target="_blank" rel="noopener noreferrer" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-emerald-950/50 border border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-11-link-hover-pinch-static.png" data-static="images/system-outline-11-link-hover-pinch-static.png" data-gif="images/system-outline-11-link-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>Visit Flexbox Froggy</span>
+                    </a>
+                    <button type="button" onclick="document.getElementById('image-modal').showModal()" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-emerald-400 text-xs sm:text-sm font-semibold border border-emerald-500/40 hover:border-emerald-500 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
+                        <img src="images/system-outline-19-magnifier-hover-pinch-static.png" data-static="images/system-outline-19-magnifier-hover-pinch-static.png" data-gif="images/system-outline-19-magnifier-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-active" alt="">
+                        <span>View Full-Size Proof</span>
+                    </button>
+                </div>
+            </article>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Project 2 -->
+            <article class="group bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-emerald-500/40 rounded-3xl p-5 sm:p-8 space-y-5 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-emerald-950/20">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 class="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">2. Multi-Page Semantic Portfolio Website</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Completed</span>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-zinc-100">Description:</strong> A multi-page personal portfolio developed entirely with vanilla HTML5. The primary focus of this project is demonstrating complete mastery over semantic HTML tags, document hierarchy, relative link navigation, and accessibility standards without relying on CSS or JavaScript frameworks.
+                </p>
+                <h4 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400 border-b border-zinc-800 pb-2">Project Information:</h4>
+                <ul class="space-y-2.5 sm:space-y-3 list-none pl-0 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <li><strong class="text-zinc-100">Role:</strong> Lead Developer &amp; Designer</li>
+                    <li><strong class="text-zinc-100">Status:</strong> Completed</li>
+                    <li><strong class="text-zinc-100">Key Features:</strong>
+                        <ul class="mt-2 space-y-1.5 list-disc list-outside ml-4 sm:ml-5 text-zinc-300 marker:text-emerald-400">
+                            <li>Multi-page architecture with independent HTML files (Home, About, Projects, Contact).</li>
+                            <li>Semantic elements throughout (<code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;header&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;nav&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;main&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;article&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;section&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;figure&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;address&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;footer&gt;</code>).</li>
+                            <li>Relative internal links connecting all pages seamlessly.</li>
+                            <li>Interactive semantic contact form with various HTML5 input types (<code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">text</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">email</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">tel</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">textarea</code>).</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-zinc-100">Technologies Used:</strong> HTML5, Semantic Elements, Git</li>
+                </ul>
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-t border-zinc-800/80">
+                    <a href="index.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold shadow-md border border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>View Live Site (Home)</span>
+                    </a>
+                    <a href="https://github.com/demetre-imedadze/semantic-portfolio" target="_blank" rel="noopener noreferrer" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-emerald-400 text-xs sm:text-sm font-semibold border border-emerald-500/40 hover:border-emerald-500 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-11-link-hover-pinch-static.png" data-static="images/system-outline-11-link-hover-pinch-static.png" data-gif="images/system-outline-11-link-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-active" alt="">
+                        <span>Source Code on GitHub</span>
+                    </a>
+                </div>
+            </article>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Project 3 -->
+            <article class="group bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-emerald-500/40 rounded-3xl p-5 sm:p-8 space-y-5 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-emerald-950/20">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 class="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">3. Daily Task &amp; Habit Tracker</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Version 1.2</span>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-zinc-100">Description:</strong> A lightweight productivity web application designed to help users organize daily tasks, set habit reminders, and track continuous streak statistics. The application utilizes the browser's LocalStorage API to ensure user data persists across browser sessions.
+                </p>
+                <h4 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400 border-b border-zinc-800 pb-2">Project Information:</h4>
+                <ul class="space-y-2.5 sm:space-y-3 list-none pl-0 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <li><strong class="text-zinc-100">Role:</strong> Front-end Developer</li>
+                    <li><strong class="text-zinc-100">Status:</strong> Active / Version 1.2</li>
+                    <li><strong class="text-zinc-100">Key Features:</strong>
+                        <ul class="mt-2 space-y-1.5 list-disc list-outside ml-4 sm:ml-5 text-zinc-300 marker:text-emerald-400">
+                            <li>Create, edit, toggle completion, and delete daily to-do items.</li>
+                            <li>Categorize tasks by tags (e.g., Study, Work, Health, Personal).</li>
+                            <li>Client-side data persistence via LocalStorage.</li>
+                            <li>Visual streak counter for completed habits.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-zinc-100">Technologies Used:</strong> HTML5, CSS3, JavaScript (ES6+), Web Storage API</li>
+                </ul>
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-t border-zinc-800/80">
+                    <a href="https://github.com/demetre-imedadze/task-habit-tracker" target="_blank" rel="noopener noreferrer" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-emerald-400 text-xs sm:text-sm font-semibold border border-emerald-500/40 hover:border-emerald-500 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-11-link-hover-pinch-static.png" data-static="images/system-outline-11-link-hover-pinch-static.png" data-gif="images/system-outline-11-link-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-active" alt="">
+                        <span>Source Code on GitHub</span>
+                    </a>
+                </div>
+            </article>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Project 4 -->
+            <article class="group bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-emerald-500/40 rounded-3xl p-5 sm:p-8 space-y-5 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-emerald-950/20">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 class="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">4. Web Accessibility &amp; Semantic HTML Reference Guide</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Maintained</span>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-zinc-100">Description:</strong> An educational documentation website and cheatsheet tailored for beginner web developers. It provides clear guidelines, code snippets, and explanations on how to write accessible HTML that complies with WCAG (Web Content Accessibility Guidelines) standards.
+                </p>
+                <h4 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400 border-b border-zinc-800 pb-2">Project Information:</h4>
+                <ul class="space-y-2.5 sm:space-y-3 list-none pl-0 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <li><strong class="text-zinc-100">Role:</strong> Technical Author &amp; Developer</li>
+                    <li><strong class="text-zinc-100">Status:</strong> Completed &amp; Maintained</li>
+                    <li><strong class="text-zinc-100">Key Features:</strong>
+                        <ul class="mt-2 space-y-1.5 list-disc list-outside ml-4 sm:ml-5 text-zinc-300 marker:text-emerald-400">
+                            <li>Comprehensive element index with usage examples and anti-patterns.</li>
+                            <li>Screen reader compatibility tips and ARIA landmark attribute guides.</li>
+                            <li>Quick-search reference table of HTML5 form validation attributes.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-zinc-100">Technologies Used:</strong> HTML5, Markdown, Static Site Generator</li>
+                </ul>
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-t border-zinc-800/80">
+                    <a href="https://github.com/demetre-imedadze/html5-accessibility-guide" target="_blank" rel="noopener noreferrer" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-emerald-400 text-xs sm:text-sm font-semibold border border-emerald-500/40 hover:border-emerald-500 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-11-link-hover-pinch-static.png" data-static="images/system-outline-11-link-hover-pinch-static.png" data-gif="images/system-outline-11-link-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-active" alt="">
+                        <span>Source Code on GitHub</span>
+                    </a>
+                </div>
+            </article>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Project 5 -->
+            <article class="group bg-zinc-900/40 backdrop-blur-md hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-emerald-500/40 rounded-3xl p-5 sm:p-8 space-y-5 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-emerald-950/20">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <h3 class="text-lg sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">5. Recipe &amp; Nutrition Journal</h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Prototype</span>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-zinc-100">Description:</strong> A culinary web resource containing step-by-step cooking recipes, ingredient breakdown lists, and basic caloric estimations. It makes heavy use of structured semantic lists, tables, and figure captions for recipe photos.
+                </p>
+                <h4 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-400 border-b border-zinc-800 pb-2">Project Information:</h4>
+                <ul class="space-y-2.5 sm:space-y-3 list-none pl-0 text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    <li><strong class="text-zinc-100">Role:</strong> Front-end Developer</li>
+                    <li><strong class="text-zinc-100">Status:</strong> Prototype</li>
+                    <li><strong class="text-zinc-100">Key Features:</strong>
+                        <ul class="mt-2 space-y-1.5 list-disc list-outside ml-4 sm:ml-5 text-zinc-300 marker:text-emerald-400">
+                            <li>Semantic table representation of nutritional facts and macros.</li>
+                            <li>Step-by-step ordered lists for preparation directions.</li>
+                            <li>Serving size calculator.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="text-zinc-100">Technologies Used:</strong> HTML5 Tables &amp; Forms, JavaScript</li>
+                </ul>
+                <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-t border-zinc-800/80">
+                    <a href="https://github.com/demetre-imedadze/nutrition-journal" target="_blank" rel="noopener noreferrer" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-emerald-400 text-xs sm:text-sm font-semibold border border-emerald-500/40 hover:border-emerald-500 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-11-link-hover-pinch-static.png" data-static="images/system-outline-11-link-hover-pinch-static.png" data-gif="images/system-outline-11-link-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-active" alt="">
+                        <span>Source Code on GitHub</span>
+                    </a>
+                </div>
+            </article>
+
+            <hr class="border-zinc-800/80">
+
+            <!-- Responsive Call to Action Banner -->
+            <section class="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-zinc-800/80 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+                <h3 class="text-lg sm:text-xl font-bold text-white">Have questions or want to collaborate?</h3>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    Feel free to check out my Contact page to discuss collaborating on any of these projects or starting something new.
+                </p>
+                <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <a href="contact.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-950/60 border border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>Get In Touch</span>
+                    </a>
+                    <a href="about.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm border border-zinc-700/70 hover:border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-21-avatar-hover-pinch-static.png" data-static="images/system-outline-21-avatar-hover-pinch-static.png" data-gif="images/system-outline-21-avatar-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain icon-filter-muted" alt="">
+                        <span>Read About Me</span>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="pt-8 pb-8 mt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-zinc-400 text-center sm:text-left">
+        <p>&copy; 2026 Demetre Imedadze. All rights reserved.</p>
+        <p><a href="#top" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-emerald-400 hover:text-emerald-300 font-medium border border-zinc-800 transition">Back to Top &uarr;</a></p>
+    </footer>
+
+    <!-- Modal for Enlarged Proof Image -->
+    <dialog id="image-modal" class="fixed inset-0 m-auto max-w-5xl w-[94vw] sm:w-[90vw] max-h-[92vh] bg-zinc-950 border border-zinc-700/80 rounded-3xl shadow-2xl p-0 backdrop:bg-black/85 backdrop:backdrop-blur-md open:flex open:flex-col text-zinc-100 outline-none">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 sm:p-4 gap-2 border-b border-zinc-800 bg-zinc-900/90">
+            <h4 class="text-xs sm:text-base font-semibold text-emerald-400 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span>Flexbox Froggy Completion Proof</span>
+                <span class="text-[11px] sm:text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Level 24/24</span>
+            </h4>
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="images/flexboxfroggy.png" target="_blank" rel="noopener noreferrer" class="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg bg-zinc-800 hover:bg-zinc-700 text-emerald-400 border border-emerald-500/40 hover:border-emerald-500 transition">Open Native Zoom &nearr;</a>
+                <button type="button" onclick="document.getElementById('image-modal').close()" class="px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 transition cursor-pointer">✕ Close</button>
+            </div>
+        </div>
+        <div class="overflow-auto p-2 sm:p-4 flex-1 flex items-center justify-center bg-black/70">
+            <img src="images/flexboxfroggy.png" alt="Enlarged Proof of Flexbox Froggy completion" class="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-zinc-800">
+        </div>
+    </dialog>
+
+    <!-- Interactive Scripts: Mobile Menu & Hover GIF Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preload GIF icons for instant 0ms hover playback
+            const gifList = [
+                'images/system-outline-63-home-hover-pinch.gif',
+                'images/system-outline-21-avatar-hover-pinch.gif',
+                'images/system-outline-56-file-text-hover-pinch.gif',
+                'images/system-outline-4073-email-hover-pinch.gif',
+                'images/system-outline-11-link-hover-pinch.gif',
+                'images/system-outline-19-magnifier-hover-pinch.gif'
+            ];
+            gifList.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            // Hover-Only GIF Animation Handler
+            const animatedButtons = document.querySelectorAll('.nav-animated-btn');
+            animatedButtons.forEach(btn => {
+                const icon = btn.querySelector('.hover-gif-icon');
+                if (!icon) return;
+                const staticSrc = icon.getAttribute('data-static');
+                const gifSrc = icon.getAttribute('data-gif');
+
+                btn.addEventListener('mouseenter', () => {
+                    icon.src = gifSrc + '?t=' + Date.now();
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    icon.src = staticSrc;
+                });
+
+                btn.addEventListener('touchstart', () => {
+                    icon.src = gifSrc + '?t=' + Date.now();
+                }, { passive: true });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (mobileMenuButton && mobileNav) {
+                function openMenu() {
+                    mobileNav.classList.add('open');
+                    mobileNav.classList.remove('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'true');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.add('hidden');
+                        hamburgerIcon.classList.remove('block');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.remove('hidden');
+                        closeIcon.classList.add('block');
+                    }
+                }
+
+                function closeMenu() {
+                    mobileNav.classList.remove('open');
+                    mobileNav.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.remove('hidden');
+                        hamburgerIcon.classList.add('block');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.add('hidden');
+                        closeIcon.classList.remove('block');
+                    }
+                }
+
+                function toggleMenu() {
+                    if (mobileNav.classList.contains('open')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                }
+
+                mobileMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeMenu();
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!mobileNav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                        closeMenu();
+                        mobileMenuButton.focus();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        closeMenu();
+                    }
+                });
+            }
+
+            // Image Modal Close on backdrop click
+            const modal = document.getElementById('image-modal');
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    const rect = modal.getBoundingClientRect();
+                    const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+                    if (!isInDialog) {
+                        modal.close();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

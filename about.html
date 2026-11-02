@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Demetre Imedadze</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base box-sizing and overflow prevention */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        img, video, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive Breakpoint: <= 768px Mobile vs >= 769px Desktop */
+        .mobile-nav-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+            .mobile-menu-btn {
+                display: inline-flex !important;
+            }
+            .mobile-nav-menu.open {
+                display: block !important;
+            }
+        }
+        @media (min-width: 769px) {
+            .desktop-nav {
+                display: block !important;
+            }
+            .mobile-menu-btn {
+                display: none !important;
+            }
+            .mobile-nav-menu {
+                display: none !important;
+            }
+        }
+
+        /* Icon Filters */
+        .icon-filter-active {
+            filter: brightness(0) saturate(100%) invert(67%) sepia(47%) saturate(632%) hue-rotate(113deg) brightness(97%) contrast(89%);
+        }
+        .icon-filter-muted {
+            filter: brightness(0) invert(0.85);
+            transition: filter 0.2s ease;
+        }
+        .nav-animated-btn:hover .icon-filter-muted {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body id="top" class="bg-zinc-950 text-zinc-100 min-h-screen font-sans selection:bg-emerald-500 selection:text-zinc-950 max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex flex-col antialiased relative">
+
+    <!-- Subtle Modern Ambient Background Glows -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+        <div class="absolute -top-36 left-1/2 -translate-x-1/2 w-[650px] h-[320px] bg-emerald-500/10 blur-[130px] rounded-full"></div>
+        <div class="absolute top-[480px] -left-36 w-[450px] h-[280px] bg-teal-500/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="pb-6">
+        <div class="flex items-center justify-between gap-4">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 shadow-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Profile &amp; Bio
+                    </span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-1 truncate sm:whitespace-normal">Demetre Imedadze</h1>
+                <p class="text-zinc-400 text-xs sm:text-base leading-tight">Junior Web Developer &amp; Tech Enthusiast</p>
+            </div>
+            
+            <!-- Hamburger Menu Button (Visible on screens <= 768px) -->
+            <button id="mobile-menu-button" type="button" class="mobile-menu-btn shrink-0 hidden items-center justify-center p-2.5 rounded-xl text-zinc-300 hover:text-white bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700/70 transition shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg id="hamburger-icon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu (Visible <= 768px when expanded) -->
+        <nav id="mobile-nav" class="mobile-nav-menu hidden mt-4 pt-4 border-t border-zinc-800/80" aria-label="Mobile Navigation">
+            <ul class="flex flex-col gap-2.5 list-none p-0 m-0">
+                <li>
+                    <a href="index.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Home</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 ring-1 ring-emerald-500/30 shadow-md">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-21-avatar-hover-pinch-static.png" data-static="images/system-outline-21-avatar-hover-pinch-static.png" data-gif="images/system-outline-21-avatar-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-active" alt="">
+                            <span>About</span>
+                        </div>
+                        <span class="text-xs text-emerald-400 font-normal">Current Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-56-file-text-hover-pinch-static.png" data-static="images/system-outline-56-file-text-hover-pinch-static.png" data-gif="images/system-outline-56-file-text-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Projects</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-animated-btn mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition">
+                        <div class="flex items-center gap-3">
+                            <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Contact</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Desktop Navigation (Keeps layout, modernized with floating glass card and interactive animated GIF icons) -->
+        <div class="desktop-nav">
+            <hr class="border-zinc-800/80 my-5">
+            <nav aria-label="Desktop Navigation" class="bg-zinc-900/40 backdrop-blur-md p-1.5 rounded-2xl border border-zinc-800/80 shadow-md">
+                <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
+                    <li>
+                        <a href="index.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 ring-1 ring-emerald-500/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all duration-200">
+                            <img src="images/system-outline-21-avatar-hover-pinch-static.png" data-static="images/system-outline-21-avatar-hover-pinch-static.png" data-gif="images/system-outline-21-avatar-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-active" alt="">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-56-file-text-hover-pinch-static.png" data-static="images/system-outline-56-file-text-hover-pinch-static.png" data-gif="images/system-outline-56-file-text-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-animated-btn inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-5 h-5 object-contain icon-filter-muted" alt="">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <hr class="border-zinc-800/80 my-5">
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 space-y-8 sm:space-y-12">
+
+        <section class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="w-1.5 h-6 rounded-full bg-emerald-500"></span>
+                <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight">About Me</h2>
+            </div>
+            
+            <figure class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 p-6 sm:p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-zinc-800/80 shadow-xl shadow-black/40 hover:border-emerald-500/30 transition-all duration-300">
+                <div class="relative group shrink-0">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                    <img src="images/cat.png" alt="Profile picture of Demetre Imedadze" width="200" class="relative w-36 h-36 sm:w-48 sm:h-48 rounded-2xl sm:rounded-3xl object-cover ring-2 ring-emerald-500/50 shadow-xl">
+                </div>
+                <div class="space-y-2 text-center sm:text-left">
+                    <figcaption class="text-xs uppercase font-bold tracking-widest text-emerald-400">Demetre Imedadze — Web Developer</figcaption>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white">Passionate about coding, accessibility, and modern interfaces.</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400">Based in Tbilisi, Georgia &bull; Dedicated to continuous learning.</p>
+                </div>
+            </figure>
+
+            <!-- Background Section -->
+            <article class="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-zinc-800/80 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+                <div class="flex items-center gap-2 text-emerald-400">
+                    <img src="images/system-outline-21-avatar-hover-pinch-static.png" class="w-5 h-5 icon-filter-active" alt="">
+                    <h3 class="text-lg sm:text-2xl font-bold">Background</h3>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    My name is Demetre Imedadze, based in Tbilisi, Georgia. My interest in technology began with curiosity about how websites and digital products function behind the scenes. This curiosity quickly turned into a dedicated commitment to study computer science and software development.
+                </p>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    Throughout my academic and independent studies, I have prioritized understanding computer science fundamentals, data structures, and web technologies. I believe that writing clean, standard-compliant code is essential for creating accessible digital experiences for everyone.
+                </p>
+            </article>
+
+            <!-- Learning Journey Section with responsive cards -->
+            <article class="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-zinc-800/80 space-y-5 shadow-sm hover:border-zinc-700/80 transition-colors">
+                <div class="flex items-center gap-2 text-emerald-400">
+                    <img src="images/system-outline-56-file-text-hover-pinch-static.png" class="w-5 h-5 icon-filter-active" alt="">
+                    <h3 class="text-lg sm:text-2xl font-bold">Learning Journey</h3>
+                </div>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    My web development journey started with mastering the core building blocks of the web:
+                </p>
+                
+                <ol class="space-y-3.5 list-none pl-0">
+                    <li class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 flex items-start gap-3">
+                        <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-emerald-500/10 text-emerald-400 text-xs font-bold shrink-0 border border-emerald-500/30">1</span>
+                        <div>
+                            <strong class="text-white text-sm sm:text-base block mb-1">Semantic HTML &amp; Web Standards</strong>
+                            <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                                Structuring documents meaningfully using semantic tags (<code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;header&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;nav&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;article&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;section&gt;</code>, <code class="text-xs bg-zinc-800 text-emerald-300 px-1 py-0.5 rounded">&lt;footer&gt;</code>), ensuring high accessibility (a11y) and SEO.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 flex items-start gap-3">
+                        <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-emerald-500/10 text-emerald-400 text-xs font-bold shrink-0 border border-emerald-500/30">2</span>
+                        <div>
+                            <strong class="text-white text-sm sm:text-base block mb-1">Styling &amp; Layout Concepts</strong>
+                            <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                                Exploring modern CSS layouts, responsive design, Flexbox, and Grid systems to turn structured content into visually engaging interfaces.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 flex items-start gap-3">
+                        <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-emerald-500/10 text-emerald-400 text-xs font-bold shrink-0 border border-emerald-500/30">3</span>
+                        <div>
+                            <strong class="text-white text-sm sm:text-base block mb-1">Logic &amp; Interactivity</strong>
+                            <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                                Diving into JavaScript to build interactive components, manipulate the DOM, and handle client-side state dynamically.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 flex items-start gap-3">
+                        <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-emerald-500/10 text-emerald-400 text-xs font-bold shrink-0 border border-emerald-500/30">4</span>
+                        <div>
+                            <strong class="text-white text-sm sm:text-base block mb-1">Tools &amp; Version Control</strong>
+                            <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                                Using Git and GitHub for tracking code changes, branching, and collaborating on software repositories.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- Goals Section -->
+            <article class="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-zinc-800/80 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+                <div class="flex items-center gap-2 text-emerald-400">
+                    <img src="images/system-outline-63-home-hover-pinch-static.png" class="w-5 h-5 icon-filter-active" alt="">
+                    <h3 class="text-lg sm:text-2xl font-bold">Future Goals</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    <div class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 space-y-2">
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Short-Term</span>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">Master modern front-end frameworks, build production-ready full-stack projects, and secure an internship.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 space-y-2">
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Long-Term</span>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">Become a skilled software engineer capable of architecting scalable applications and contributing to open-source.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 space-y-2">
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Growth</span>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">Deepen expertise in web performance optimization, API design, testing, and modern security practices.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Responsive Next Steps Action Buttons -->
+            <section class="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-zinc-800/80 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+                <h3 class="text-lg sm:text-xl font-bold text-white">Next Steps</h3>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    Ready to see what I've constructed or want to get in touch?
+                </p>
+                <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <a href="projects.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-sm shadow-lg shadow-emerald-950/60 border border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-56-file-text-hover-pinch-static.png" data-static="images/system-outline-56-file-text-hover-pinch-static.png" data-gif="images/system-outline-56-file-text-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>View My Projects</span>
+                    </a>
+                    <a href="contact.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm border border-zinc-700/70 hover:border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-4073-email-hover-pinch-static.png" data-static="images/system-outline-4073-email-hover-pinch-static.png" data-gif="images/system-outline-4073-email-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>Contact Me</span>
+                    </a>
+                    <a href="index.html" class="nav-animated-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm border border-zinc-700/70 hover:border-emerald-500/40 transition-all duration-200 hover:-translate-y-0.5">
+                        <img src="images/system-outline-63-home-hover-pinch-static.png" data-static="images/system-outline-63-home-hover-pinch-static.png" data-gif="images/system-outline-63-home-hover-pinch.gif" class="hover-gif-icon w-4 h-4 object-contain filter invert" alt="">
+                        <span>Back to Home</span>
+                    </a>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="pt-8 pb-8 mt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-zinc-400 text-center sm:text-left">
+        <p>&copy; 2026 Demetre Imedadze. All rights reserved.</p>
+        <p><a href="#top" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-emerald-400 hover:text-emerald-300 font-medium border border-zinc-800 transition">Back to Top &uarr;</a></p>
+    </footer>
+
+    <!-- Interactive Scripts: Mobile Menu & Hover GIF Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preload GIF icons for instant 0ms hover playback
+            const gifList = [
+                'images/system-outline-63-home-hover-pinch.gif',
+                'images/system-outline-21-avatar-hover-pinch.gif',
+                'images/system-outline-56-file-text-hover-pinch.gif',
+                'images/system-outline-4073-email-hover-pinch.gif'
+            ];
+            gifList.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            // Hover-Only GIF Animation Handler
+            const animatedButtons = document.querySelectorAll('.nav-animated-btn');
+            animatedButtons.forEach(btn => {
+                const icon = btn.querySelector('.hover-gif-icon');
+                if (!icon) return;
+                const staticSrc = icon.getAttribute('data-static');
+                const gifSrc = icon.getAttribute('data-gif');
+
+                btn.addEventListener('mouseenter', () => {
+                    icon.src = gifSrc + '?t=' + Date.now();
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    icon.src = staticSrc;
+                });
+
+                btn.addEventListener('touchstart', () => {
+                    icon.src = gifSrc + '?t=' + Date.now();
+                }, { passive: true });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileNav = document.getElementById('mobile-nav');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (mobileMenuButton && mobileNav) {
+                function openMenu() {
+                    mobileNav.classList.add('open');
+                    mobileNav.classList.remove('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'true');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.add('hidden');
+                        hamburgerIcon.classList.remove('block');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.remove('hidden');
+                        closeIcon.classList.add('block');
+                    }
+                }
+
+                function closeMenu() {
+                    mobileNav.classList.remove('open');
+                    mobileNav.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    if (hamburgerIcon) {
+                        hamburgerIcon.classList.remove('hidden');
+                        hamburgerIcon.classList.add('block');
+                    }
+                    if (closeIcon) {
+                        closeIcon.classList.add('hidden');
+                        closeIcon.classList.remove('block');
+                    }
+                }
+
+                function toggleMenu() {
+                    if (mobileNav.classList.contains('open')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                }
+
+                mobileMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+
+                const mobileLinks = mobileNav.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeMenu();
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!mobileNav.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                        closeMenu();
+                        mobileMenuButton.focus();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        closeMenu();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
